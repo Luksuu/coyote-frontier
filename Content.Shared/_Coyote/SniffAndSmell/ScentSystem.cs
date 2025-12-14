@@ -248,7 +248,10 @@ public sealed class ScentSystem : EntitySystem
                 ("scents", string.Join(", ", allButLast)),
                 ("lastscent", last));
         }
-        args.PushMarkup(combinedDesc);
+        using (args.PushGroup("DanIsCool"))
+        {
+            args.PushMarkup(combinedDesc);
+        }
     }
 
     /// <summary>
@@ -826,7 +829,7 @@ public sealed class ScentSystem : EntitySystem
             return true;
         if (HasComp<AdminGhostComponent>(uid))
             return true;
-        return !_consent.HasConsent(uid, "CantSmellLewdScents");
+        return _consent.HasConsent(uid, "CanSmellLewdScents");
         // dont like the fact that consents default to *ON*
     }
    #endregion

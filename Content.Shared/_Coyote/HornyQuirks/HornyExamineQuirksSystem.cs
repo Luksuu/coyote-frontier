@@ -27,52 +27,58 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
         var targetIdent = ("target", Identity.Entity(args.Examined, EntityManager));
         var examinerIdent = ("examiner", Identity.Entity(args.Examiner, EntityManager));
         TryComp<HornyExamineQuirksComponent>(args.Examiner, out var examinerQuirks);
-        foreach (var showable in component.HornyShowables)
+        using (args.PushGroup("DanIsCool"))
         {
-            if (!_prototypeManager.TryIndex(showable, out var hornyProto))
-                continue;
-
-            if (isSalf)
+            foreach (var showable in component.HornyShowables)
             {
-                if (hornyProto.SelfExamine)
+                if (!_prototypeManager.TryIndex(showable, out var hornyProto))
+                    continue;
+
+                if (isSalf)
+                {
+                    if (hornyProto.SelfExamine)
+                    {
+                        goto ShowIt;
+                    }
+
+                    continue;
+                }
+
+                if (string.IsNullOrEmpty(hornyProto.NeededTag))
                 {
                     goto ShowIt;
                 }
-                continue;
-            }
-            if (string.IsNullOrEmpty(hornyProto.NeededTag))
-            {
-                goto ShowIt;
+
+                // check if examiner has the needed tag
+                if (examinerQuirks is not null
+                    && !examinerQuirks.HasTagToShow(hornyProto.NeededTag))
+                {
+                    continue;
+                }
+
+                ShowIt:
+                temperaments.Add(hornyProto.TextToShow);
             }
 
-            // check if examiner has the needed tag
-            if (examinerQuirks is not null
-                && !examinerQuirks.HasTagToShow(hornyProto.NeededTag))
+            if (temperaments.Count > 0)
             {
-                continue;
+                foreach (var loc in temperaments)
+                {
+                    var translated = Loc.GetString(
+                        loc,
+                        targetIdent,
+                        examinerIdent);
+                    args.PushMarkup(translated);
+                }
             }
-            ShowIt:
-            temperaments.Add(hornyProto.TextToShow);
-        }
 
-        if (temperaments.Count > 0)
-        {
-            foreach (var loc in temperaments)
+            string bodyWords = formatulateBodyWords(uid, component);
+            // stick body words at start
+            if (!string.IsNullOrEmpty(bodyWords))
             {
-                var translated = Loc.GetString(
-                    loc,
-                    targetIdent,
-                    examinerIdent);
-                args.PushMarkup(translated);
+                args.PushMarkup(bodyWords);
             }
         }
-        string bodyWords = formatulateBodyWords(uid, component);
-        // stick body words at start
-        if (!string.IsNullOrEmpty(bodyWords))
-        {
-            args.PushMarkup(bodyWords);
-        }
-
     }
 
     /// <summary>
