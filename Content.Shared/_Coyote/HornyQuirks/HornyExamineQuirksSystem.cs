@@ -97,18 +97,19 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
         _rnd.Shuffle(appearances);
         var descriptive = appearances[0].Item1;
         var briefList = appearances.Skip(1).Select(x => x.Item2).ToList();
+        var hormy = Identity.Entity(horny, EntityManager);
         switch (briefList.Count)
         {
             case 0:
                 return Loc.GetString(
                     "horny-examine-quirk-bodyword-single",
-                    ("them", Identity.Entity(horny, EntityManager)),
+                    ("them", hormy),
                     ("first", descriptive));
             // case: two
             case 1:
                 return Loc.GetString(
                     "horny-examine-quirk-bodyword-two",
-                    ("them", Identity.Entity(horny, EntityManager)),
+                    ("them", hormy),
                     ("first", descriptive),
                     ("second", briefList[0]));
             default:
@@ -117,7 +118,7 @@ public sealed class HornyExamineQuirksSystem : EntitySystem
                 var middle = briefList.Take(briefList.Count - 1).ToList();
                 return Loc.GetString(
                     "horny-examine-quirk-bodyword-multiple",
-                    ("them", Identity.Entity(horny, EntityManager)),
+                    ("them", hormy),
                     ("first", descriptive),
                     ("middle", string.Join(", ", middle)),
                     ("last", last));
