@@ -1123,6 +1123,19 @@ marking-SpeciesAdaptorReptilianLFoot       = Base Sprite - Reptilian Left Foot
 marking-SpeciesAdaptorReptilianRLeg        = Base Sprite - Reptilian Right Leg
 marking-SpeciesAdaptorReptilianRFoot       = Base Sprite - Reptilian Right Foot
 
+marking-SpeciesAdaptorOviniaHeadMale       = Base Sprite - Sheepgoat Head (Male)
+marking-SpeciesAdaptorOviniaHeadFemale     = Base Sprite - Sheepgoat Head (Female)
+marking-SpeciesAdaptorOviniaTorsoMale      = Base Sprite - Sheepgoat Chest (Female)
+marking-SpeciesAdaptorOviniaTorsoFemale    = Base Sprite - Sheepgoat Chest (Female)
+marking-SpeciesAdaptorOviniaLArm           = Base Sprite - Sheepgoat Left Arm
+marking-SpeciesAdaptorOviniaLHand          = Base Sprite - Sheepgoat Left Hand
+marking-SpeciesAdaptorOviniaRArm           = Base Sprite - Sheepgoat Right Arm
+marking-SpeciesAdaptorOviniaRHand          = Base Sprite - Sheepgoat Right Hand
+marking-SpeciesAdaptorOviniaLLeg           = Base Sprite - Sheepgoat Left Leg
+marking-SpeciesAdaptorOviniaLFoot          = Base Sprite - Sheepgoat Left Foot
+marking-SpeciesAdaptorOviniaRLeg           = Base Sprite - Sheepgoat Right Leg
+marking-SpeciesAdaptorOviniaRFoot          = Base Sprite - Sheepgoat Right Foot
+
 
 
 marking-Hairafrogeneric = Afro Extension
