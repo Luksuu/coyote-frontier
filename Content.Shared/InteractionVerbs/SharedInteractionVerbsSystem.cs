@@ -326,7 +326,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
         verb.DoContactInteraction = proto.DoContactInteraction;
         verb.Priority = proto.Priority;
         verb.Icon = proto.Icon;
-        
+
         // Set category based on the CategoryKey, or default to Interaction
         verb.Category = proto.CategoryKey switch
         {
