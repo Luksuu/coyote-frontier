@@ -631,15 +631,6 @@
   - WeldingFuel
 
 - type: trait
-  id: ScentOil
-  name: trait-scent-oil-name
-  description: trait-scent-oil-desc
-  category: Scents
-  cost: 1
-  scentProtos:
-  - Oil
-
-- type: trait
   id: ScentDust
   name: trait-scent-dust-name
   description: trait-scent-dust-desc
