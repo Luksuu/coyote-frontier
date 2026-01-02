@@ -902,7 +902,7 @@
 - type: entity
   id: XenoArtifactAngryCarpSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fauna
+  description: Create hostile fauna # Coyote
   categories: [ HideSpawnMenu ] # Frontier
   components:
   - type: XenoArtifactNode
