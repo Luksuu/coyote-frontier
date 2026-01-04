@@ -242,5 +242,9 @@
     # Syndicate Assault Cyborg Chassis
     - id: BorgChassisSyndicateAssault # Coyote: more silicon loot
       prob: 0.05
+    # Telecrystal
+    - id: Telecrystal1 # Coyote: more silicon loot
+      prob: 0.02
+      amount: 2
     sound:
       path: /Audio/Machines/windoor_open.ogg
