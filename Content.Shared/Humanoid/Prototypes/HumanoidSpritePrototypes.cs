@@ -78,4 +78,13 @@ public sealed partial class HumanoidSpeciesSpriteLayer : IPrototype
     /// </summary>
     [DataField]
     public bool ForcedColoring { get; private set; }
+
+    /// <summary>
+    ///     Coyote: A list of alternative sprites to be used for this layer,
+    ///     for if when they have different leg styles.
+    ///     Mostly just for legs and feet and chests.
+    ///     Done differently from markings, cus reasons.
+    /// </summary>
+    [DataField("altSprites")]
+    public Dictionary<HumanoidLegStyle, SpriteSpecifier> AltSprites = new();
 }

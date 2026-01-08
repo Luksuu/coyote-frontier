@@ -195,6 +195,12 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public float AverageWidth = 40f;
+
+    /// <summary>
+    ///     COYOTE: What kind of legs does this species have by default?
+    /// </summary>
+    [DataField]
+    public HumanoidLegStyle DefaultLegStyle = HumanoidLegStyle.Plantigrade;
 }
 
 public enum SpeciesNaming : byte

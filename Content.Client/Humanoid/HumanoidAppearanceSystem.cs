@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.DisplacementMap;
 using Content.Shared.CCVar;
 using System.Numerics;
@@ -47,6 +48,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
     private void UpdateSprite(HumanoidAppearanceComponent component, SpriteComponent sprite)
     {
+
         UpdateLayers(component, sprite);
         ApplyMarkingSet(component, sprite);
         // TODO: make this thing a more versatulate proc
@@ -131,6 +133,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
+    /// <summary>
+    /// Sets the data for a specific layer on the sprite component.
+    /// This is for the base layers only, so like, arms, legs, torso, head, etc.
+    /// </summary>
     private void SetLayerData(
         HumanoidAppearanceComponent component,
         SpriteComponent sprite,
@@ -159,7 +165,28 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             layer.Color = component.SkinColor.WithAlpha(proto.LayerAlpha);
 
         if (proto.BaseSprite != null)
-            sprite.LayerSetSprite(layerIndex, proto.BaseSprite);
+        {
+            SpriteSpecifier appropriateSprite = proto.BaseSprite;
+            // COYOTE: add support for cute digitigrade legs
+            if (component.LegStyle != HumanoidLegStyle.Plantigrade
+                && proto.AltSprites.Count > 0)
+            {
+                // we have to do two things: check if the leg style is supported, and if not, check if DigitigradePaw
+                // is supported. At least one needs to be true!
+                if (proto.AltSprites.TryGetValue(component.LegStyle, out SpriteSpecifier? altSprite))
+                {
+                    appropriateSprite = altSprite;
+                }
+                else if (component.LegStyle != HumanoidLegStyle.DigitigradePaw
+                         && proto.AltSprites.TryGetValue(HumanoidLegStyle.DigitigradePaw, out SpriteSpecifier? altPawSprite))
+                {
+                    appropriateSprite = altPawSprite;
+                }
+                // shader will be appliesed lader
+            }
+            // END COYOTE (PLEASE)
+            sprite.LayerSetSprite(layerIndex, appropriateSprite);
+        }
     }
 
     /// <summary>
@@ -289,8 +316,16 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             markings.AddBack(prototype.MarkingCategory, new Marking(marking.MarkingId, markingColors));
         }
 
-        markings.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);
-        markings.EnsureSexes(profile.Sex, _markingManager);
+        markings.EnsureSpecies(
+            profile.Species,
+            profile.Appearance.SkinColor,
+            _markingManager,
+            _prototypeManager);
+
+        markings.EnsureSexes(
+            profile.Sex,
+            _markingManager);
+
         markings.EnsureDefault(
             profile.Appearance.SkinColor,
             profile.Appearance.EyeColor,
@@ -310,6 +345,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.EyeColor = profile.Appearance.EyeColor;
         humanoid.Height = profile.Height;
         humanoid.Width = profile.Width;
+        humanoid.LegStyle = profile.Appearance.LegStyle;
 
         // Apply profile preview settings if they exist
         if (ProfilePreviewSettings != null)
@@ -340,24 +376,56 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         // var applyUndergarmentTop = censorNudity;
         // var applyUndergarmentBottom = censorNudity;
 
-        foreach (var markingList in humanoid.MarkingSet.Markings.Values)
+        foreach (List<Marking> markingList in humanoid.MarkingSet.Markings.Values)
         {
-            foreach (var marking in markingList)
+            foreach (Marking marking in markingList)
             {
-                if (_markingManager.TryGetMarking(marking, out var markingPrototype))
-                {
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
-                    // if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentTop)
-                    //     applyUndergarmentTop = false;
-                    // else if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentBottom)
-                    //     applyUndergarmentBottom = false;
-                }
+                if (!_markingManager.TryGetMarking(marking, out MarkingPrototype? markingPrototype))
+                    continue;
+                PreModifyMarking(
+                    humanoid,
+                    markingPrototype,
+                    marking,
+                    out Marking newMarking,
+                    out MarkingPrototype newMarkingPrototype);
+                ApplyMarking(
+                    newMarkingPrototype,
+                    newMarking.MarkingColors,
+                    newMarking.Visible,
+                    humanoid,
+                    sprite);
             }
         }
 
         humanoid.ClientOldMarkings = new MarkingSet(humanoid.MarkingSet);
 
         // AddUndergarments(humanoid, sprite, applyUndergarmentTop, applyUndergarmentBottom);
+    }
+
+    /// <summary>
+    /// Takes in the marking about to be applied, and allows modification of it before application.
+    /// </summary>
+    private void PreModifyMarking(
+        HumanoidAppearanceComponent humanoid,
+        MarkingPrototype markingPrototype,
+        Marking marking,
+        out Marking newMarking,
+        out MarkingPrototype newPrototype
+        )
+    {
+        newMarking = marking;
+        newPrototype = markingPrototype;
+        if (humanoid.LegStyle == HumanoidLegStyle.Plantigrade)
+            return; // No need to modify anything for plantigrade legs.
+        // Check if the marking has alternate sprites for the current leg style,
+        // Or if they dont have that specific leg style, check if they have digitigrade paw instead
+        // if neither are present, we just use the normal marking and proot
+        if (markingPrototype.AlternateSprites.TryGetValue(humanoid.LegStyle, out var altMarkingProtoId)
+            || (humanoid.LegStyle != HumanoidLegStyle.DigitigradePaw
+                && markingPrototype.AlternateSprites.TryGetValue(HumanoidLegStyle.DigitigradePaw, out altMarkingProtoId)))
+        {
+            newPrototype = _prototypeManager.Index<MarkingPrototype>(altMarkingProtoId);
+        }
     }
 
     private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
@@ -532,13 +600,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 sprite.LayerMapSet(layerId, layer);
                 sprite.LayerSetSprite(layerId, rsi);
             }
-		    // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
-			if (markingPrototype.Shader != null)
-			{
-			// use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
-				sprite.LayerSetShader(layerId, markingPrototype.Shader);
-			}
-			// impstation edit end
+            // impstation edit begin - check if there's a shader defined in the markingPrototype's shader datafield, and if there is...
+            if (markingPrototype.Shader != null)
+            {
+                // use spriteComponent's layersetshader function to set the layer's shader to that which is specified.
+                sprite.LayerSetShader(layerId, markingPrototype.Shader);
+            }
+            // impstation edit end
             sprite.LayerSetVisible(layerId, visible);
 
             if (!visible || setting == null) // this is kinda implied
