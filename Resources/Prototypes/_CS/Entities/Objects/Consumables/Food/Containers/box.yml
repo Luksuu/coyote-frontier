@@ -1,0 +1,85 @@
+# Donkpocket
+
+- type: entity
+  parent: BoxCardboard
+  id: FoodBoxDonkpocket
+  name: box of donk-pockets
+  description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
+  components:
+  - type: Sprite
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: box
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    whitelist:
+      tags:
+      - DonkPocket
+  - type: Item
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    size: Small
+  - type: StorageFill
+    contents:
+    - id: FoodDonkpocket
+      amount: 6
+  - type: NFIngredient # Frontier
+
+- type: entity
+  parent: FoodBoxDonkpocket
+  id: FoodBoxDonkpocketBbq
+  name: box of bbq-flavoured donk-pockets
+  description: Makes backyard cookouts easy!
+  components:
+  - type: Sprite
+    state: bbq-box
+  - type: Item
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+  - type: StorageFill
+    contents:
+    - id: FoodDonkpocketBbq
+      amount: 6
+
+- type: entity
+  parent: FoodBoxDonkpocket
+  id: FoodBoxDonkpocketChocolate
+  name: box of chocolate-flavoured donk-pockets
+  description: Deep-fried and filled with chocolate cream
+  components:
+  - type: Sprite
+    state: chocolate-box
+  - type: Item
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+  - type: StorageFill
+    contents:
+    - id: FoodDonkpocketChocolate
+      amount: 6
+
+- type: entity
+  parent: FoodBoxDonkpocket
+  id: FoodBoxDonkpocketMaple
+  name: box of maple-flavoured donk-pockets
+  description: Celebrate Donk co's Canadian roots with these sweet and sticky maple pockets, eh!
+  components:
+  - type: Sprite
+    state: maple-box
+  - type: Item
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+  - type: StorageFill
+    contents:
+    - id: FoodDonkpocketMaple
+      amount: 6
+
+- type: entity
+  parent: FoodBoxDonkpocket
+  id: FoodBoxDonkpocketSupermatter
+  name: box of limited edition supermatter-pockets
+  description: What was supposed to be "Suppermatter" led to a horrible misunderstanding and a class-action lawsuit.
+  components:
+  - type: Sprite
+    state: supermatter-box
+  - type: Item
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+  - type: StorageFill
+    contents:
+    - id: FoodDonkpocketSupermatter
+      amount: 6
