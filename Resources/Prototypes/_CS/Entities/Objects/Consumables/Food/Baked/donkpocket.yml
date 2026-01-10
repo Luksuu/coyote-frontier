@@ -115,6 +115,7 @@
         - ReagentId: Omnizine
           Quantity: 2
   - type: Sprite
+    sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
     state: maple
 
 - type: entity

@@ -7,9 +7,8 @@
   description: Makes backyard cookouts easy!
   components:
   - type: Sprite
-    state: bbq-box
-  - type: Item
     sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: bbq-box
   - type: StorageFill
     contents:
     - id: FoodDonkpocketBbq
@@ -22,9 +21,8 @@
   description: Deep-fried and filled with chocolate cream
   components:
   - type: Sprite
-    state: chocolate-box
-  - type: Item
     sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: chocolate-box
   - type: StorageFill
     contents:
     - id: FoodDonkpocketChocolate
@@ -37,9 +35,8 @@
   description: Celebrate Donk co's Canadian roots with these sweet and sticky maple pockets, eh!
   components:
   - type: Sprite
-    state: maple-box
-  - type: Item
     sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: maple-box
   - type: StorageFill
     contents:
     - id: FoodDonkpocketMaple
@@ -52,9 +49,8 @@
   description: What was supposed to be "Suppermatter" led to a horrible misunderstanding and a class-action lawsuit.
   components:
   - type: Sprite
-    state: supermatter-box
-  - type: Item
     sprite: _CS/Objects/Consumable/Food/Baked/donkpocket.rsi
+    state: supermatter-box
   - type: StorageFill
     contents:
     - id: FoodDonkpocketSupermatter
