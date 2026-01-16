@@ -19,7 +19,7 @@
   category: Large
   group: Expedition
   shuttlePath: /Maps/_CS/Shuttles/Expedition/gourd.yml
-  guidebookPage: Null
+  guidebookPage: null
   class:
   - Expedition
   - Salvage
