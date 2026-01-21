@@ -301,6 +301,7 @@
     - NfsdPracticeStatic
     - NFMercenaryMagazineStatic
     - NFTopicalsStatic
+    - CSIPCTopicalsStatic
     - NFMercenaryArchetypeStatic
 
   - type: BlueprintReceiver
