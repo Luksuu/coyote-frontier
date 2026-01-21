@@ -108,8 +108,8 @@
         variation: 0.125
 
 - type: entity
-  name: repair spray+
-  description: An unwieldy and obnoxiously large version of the single-use spray gun to fill damaged areas with polyurethane-based expanding foam. For synthetic use only.
+  name: arcadian repair spray
+  description: An unwieldy and obnoxiously large version of the single-use spray gun. This one features all the arcadian colors, albeit with a lot more warnings.
   parent: [BaseHealingItem,RepairSpray]
   id: RepairSprayPlus
   components:
@@ -123,7 +123,7 @@
   - type: Item
     size: Ginormous
   - type: Healing
-    delay: 5
+    delay: 25
     damageContainers:
     - Silicon
     - IPC
@@ -132,6 +132,7 @@
         Cold: -900
         Heat: -900
         Shock: -900
+        Radiation: -250
         Bloodloss: -600
     bloodlossModifier: -25
     ModifyBloodLevel: 90
@@ -200,8 +201,8 @@
   time: 5
   group: Medicinal
   solids:
-    BlankMediPen: 1
-    MaterialCloth: 5
+    MaterialCloth1: 1
+    SheetSteel1: 1
   reagents:
     Autosolder: 10
     Oxidant: 10
@@ -209,14 +210,14 @@
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
-  id: RecipeRepairSpray
-  name: repair spray+
+  id: RecipeRepairSprayPlus
+  name: arcadian repair spray
   result: RepairSprayPlus
   time: 25
   group: Medicinal
   solids:
-    BlankMediPen: 1
-    MaterialCloth: 5
+    MaterialCloth1: 1
+    SheetPlasteel1: 1
   reagents:
     Autosolder: 200
     Oxidant: 50
