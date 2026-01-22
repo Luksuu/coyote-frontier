@@ -12,21 +12,21 @@
   id: FoodBoxDonkngo
   result: FoodBoxDonkngo
   materials:
-    Cardboard: 25
+    Cardboard: 150
 
 - type: latheRecipe
   parent: NFBaseJumpsuitRecipe
   id: ClothingUniformJumpsuitDonkcoChef
   result: ClothingUniformJumpsuitDonkcoChef
   materials:
-     Cloth: 100
+     Cloth: 200
 
 - type: latheRecipe
   parent: NFBaseCoatRecipe
   id: ClothingOuterDonkcoApron
   result: ClothingOuterDonkcoApron
   materials:
-     Cloth: 100
+     Cloth: 200
 
 - type: latheRecipe
   parent: BaseHatRecipe
