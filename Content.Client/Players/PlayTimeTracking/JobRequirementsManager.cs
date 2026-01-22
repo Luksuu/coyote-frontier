@@ -114,6 +114,16 @@ public sealed partial class JobRequirementsManager : ISharedPlaytimeManager
     public bool CheckRoleRequirements(JobPrototype job, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
+        var overReqs = _entManager.System<SharedRoleSystem>().GetOverrideJobRequirement(job);
+
+        if (overReqs is { Count: > 0 })
+        {
+            if (CheckRoleRequirements(
+                overReqs,
+                profile,
+                out reason))
+                return true;
+        }
 
         //return CheckRoleRequirements(reqs, profile, out reason); // Frontier: old implementation
 

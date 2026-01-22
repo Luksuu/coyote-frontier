@@ -51,6 +51,12 @@ namespace Content.Shared.Roles
         [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
         public HashSet<JobRequirement>? Requirements;
 
+        /// <summary>
+        ///     Requirements for the job.
+        /// </summary>
+        [DataField, Access(typeof(SharedRoleSystem), Other = AccessPermissions.None)]
+        public HashSet<JobRequirement>? OverrideRequirement;
+
         // Frontier: alternate requirement sets
         /// <summary>
         /// Alternate sets of requirements - one must be matched in order to spawn as this job.

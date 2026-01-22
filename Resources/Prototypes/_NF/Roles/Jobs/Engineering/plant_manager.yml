@@ -9,6 +9,10 @@
     - !type:RoleTimeRequirement
       role: JobSecretary
       time: 72000
+  overrideRequirement:
+  - !type:RoleTimeRequirement
+    role: JobPlantManager
+    time: 600 # 10 minutes to requalify
   whitelisted: false
   startingGear: PlantManagerGear
   alwaysUseSpawner: true

@@ -674,6 +674,11 @@ public abstract class SharedRoleSystem : EntitySystem
         return job.Requirements;
     }
 
+    public HashSet<JobRequirement>? GetOverrideJobRequirement(JobPrototype job)
+    {
+        return job.OverrideRequirement;
+    }
+
     // TODO ROLES Change to readonly.
     public HashSet<JobRequirement>? GetJobRequirement(ProtoId<JobPrototype> job)
     {
