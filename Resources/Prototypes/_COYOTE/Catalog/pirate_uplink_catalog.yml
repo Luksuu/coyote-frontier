@@ -445,7 +445,7 @@
   id: UplinkFreelancerCameraBug
   name: uplink-cameraBug-name
   description: uplink-cameraBug-desc
-  productEntity: RadioJammer
+  productEntity: CameraBug
   cost:
     Doubloon: 12
   categories:
