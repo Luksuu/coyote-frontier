@@ -1,0 +1,48 @@
+# Author Info
+# GitHub: YumiGumi (https://github.com/YumiGumi)
+# Discord: MintyMoo
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Shuttle Notes:
+# Archetypes = Medical/Mercenary
+# Halftypes = Null
+# Domestic Areas = Full
+- type: vessel
+  id: seraphim
+  parent: BaseVessel
+  name: SLI Seraphim
+  description: The winged savior of the SLI corpration! Featuring an expansive medbay, large mercenary armory, and fully expedition capable!
+  price: 285000 #97000, 48500(50%(exped) + 29100(LL3(30%) + 112500(price per tile) = 287100
+  category: Large
+  group: Expedition
+  shuttlePath: /Maps/_CS/Shuttles/Expedition/seraphim.yml
+  guidebookPage: Null
+  class:
+  - Expedition
+  - Medical
+  engine:
+  - AME
+
+- type: gameMap
+  id: seraphim
+  mapName: 'seraphim'
+  mapPath: /Maps/_CS/Shuttles/Expedition/seraphim.yml
+  minPlayers: 0
+  stations:
+    seraphim:
+      stationProto: StandardFrontierExpeditionVessel
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'SLI Seraphim {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationJobs
+          availableJobs:
+            ContractorInterview: [ 2, 2 ]
+            CompanionInterview: [ 2, 2 ]
+            PilotInterview: [ 2, 2 ]
+            MercenaryInterview: [ 2, 2 ]
