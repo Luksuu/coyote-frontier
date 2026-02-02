@@ -962,9 +962,8 @@
   result: FoodRiceNoodlesSheet
   time: 15
   group: Pasta
-  solids:
-    FoodRiceDough: 1
   reagents:
+    Rice: 45
     TableSalt: 10
     Cornoil: 10
   recipeType: Assembler
