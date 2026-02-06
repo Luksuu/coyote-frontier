@@ -60,15 +60,15 @@
     - !type:GroupSelector
       children:
       - id: Matchstick
-        weight: 0.6
-      - id: GorlexMatchstick
-        weight: 0.4
+        weight: 1
+      #- id: GorlexMatchstick # Coyote: Not yet implemented, changing above weight from 0.6 to 1
+        #weight: 0.4
     - !type:GroupSelector
       children:
       - id: Matchbox
-        weight: 0.9
-      - id: GorlexMatchbox
-        weight: 0.1
+        weight: 1
+      #- id: GorlexMatchbox
+        #weight: 0.1 # Coyote: Not yet implemented, changing above weight from 0.9 to 1
     - id: CheapLighter
     - id: Lighter
     - id: FlippoLighter
@@ -358,13 +358,13 @@
   table: !type:GroupSelector
     children:
     - id: CrateFunATV
-      weight: 0.69
+      weight: 0.70 # Coyote: Change as we removed the id below.
     - id: CrateFunHoverbikeNF
       weight: 0.2
     - id: NFCrateFunSyndicateSegway
       weight: 0.1
-    - id: CrateFunScurret
-      weight: 0.01
+    #- id: CrateFunScurret # Coyote: Main proto commented, likely not desired.
+      #weight: 0.01
 
 # region Crates (Restock)
 - type: entityTable # Probably should be removed
