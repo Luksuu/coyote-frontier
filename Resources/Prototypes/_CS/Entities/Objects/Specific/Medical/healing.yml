@@ -170,16 +170,16 @@
     onlyAffectsMobs: false
     injectOnly: true
   - type: StaticPrice
-    vendPrice: 5000
+    vendPrice: 3000
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 15
         reagents:
         - ReagentId: Autosolder
-          Quantity: 20
-        - ReagentId: Sylexalin
           Quantity: 10
+        - ReagentId: Sylexalin
+          Quantity: 5
 
 - type: entity
   name: sylashizine auto-injector
@@ -221,7 +221,9 @@
         maxVol: 15
         reagents:
         - ReagentId: Sylashizine
-          Quantity: 15
+          Quantity: 10
+        - ReagentId: Sylexalin
+          Quantity: 5
 
 - type: microwaveMealRecipe
   id: RecipeRepairAutoinjector
@@ -232,8 +234,8 @@
   solids:
     BlankMediPen: 1
   reagents:
-    Autosolder: 20
-    Sylexalin: 10
+    Autosolder: 10
+    Sylexalin: 5
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
@@ -245,7 +247,8 @@
   solids:
     BlankMediPen: 1
   reagents:
-    Sylashizine: 15
+    Sylashizine: 10
+    Sylexalin: 5
   recipeType: MedicalAssembler
 
 - type: microwaveMealRecipe
