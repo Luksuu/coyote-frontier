@@ -152,9 +152,10 @@
   description: The standard-issue NFSD space proof suit for patrol duty. This bronze variant has cadet rank markings.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_bronze.rsi
+    # sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_bronze.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_bronze.rsi
   - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_bronze.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_bronze.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdBronze
   - type: ExplosionResistance
@@ -179,9 +180,9 @@
   description: The standard-issue NFSD space proof suit for patrol duty. This silver variant has officer rank markings.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_silver.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_silver.rsi
   - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_silver.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_silver.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdSilver
 
@@ -192,9 +193,9 @@
   description: The standard-issue NFSD space proof suit for patrol duty. This gold variant has supervisor rank markings.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_gold.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_gold.rsi
   - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_gold.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82c_gold.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdGold
 
@@ -218,9 +219,9 @@
   description: The standard-issue NFSD space proof suit for patrol duty. This brighter variant has brigmedic rank markings.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_brigmed.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi
   - type: Clothing
-    sprite: _NF/Clothing/OuterClothing/Hardsuits/nfsd_brigmed.rsi
+    sprite: _Mono/Clothing/OuterClothing/Hardsuits/m82b.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitNfsdBrigmedic
 

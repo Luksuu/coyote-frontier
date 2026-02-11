@@ -102,9 +102,9 @@
   description: Lightly armored softsuit helmet for beat-cop needs.
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
   - type: PointLight
     color: "#ffeead"
   - type: Armor
@@ -121,9 +121,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitNfsdBronze
@@ -131,9 +131,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitNfsdBronze
@@ -141,9 +141,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
   - type: Clothing
-    sprite: _NF/Clothing/Head/Hardsuits/nfsd.rsi
+    sprite: _Mono/Clothing/Head/Hardsuits/m82.rsi
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitNfsdBronze
