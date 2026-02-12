@@ -44,6 +44,20 @@
       path: /Audio/Items/deconstruct.ogg
     openSound:
       path: /Audio/Items/deconstruct.ogg
+  - type: Damageable # Coyote Sector
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible # Coyote Sector
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 # Same health as Emergency Pod
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: EntityStorageLayingDownOverride
   - type: Morgue
   - type: ContainerContainer
