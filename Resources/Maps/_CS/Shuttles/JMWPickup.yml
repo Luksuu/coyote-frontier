@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 02/13/2026 00:07:47
-  entityCount: 244
+  time: 02/13/2026 00:15:50
+  entityCount: 245
 maps: []
 grids:
 - 1
@@ -3560,6 +3560,13 @@ entities:
       nextSound: -2215.4962569
     - type: Physics
       canCollide: False
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 76
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
 - proto: StationRecordsComputerCircuitboard
   entities:
   - uid: 53
