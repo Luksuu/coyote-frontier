@@ -11,7 +11,7 @@
 - type: vessel
   id: JMWPickup
   parent: BaseVessel
-  name: LL0 JMW Pickup
+  name: LL0 JMWPickup
   description: "A simple pickup truck. Nothing in it is cutting edge or next generation. It is simple and idiot proof, fully future proofed."
   price: 15000
   category: Small
@@ -25,7 +25,7 @@
 
 - type: gameMap
   id: JMWPickup
-  mapName: 'JMW Pickup'
+  mapName: 'JMWPickup'
   mapPath: /Maps/_CS/Shuttles/JMWPickup.yml
   minPlayers: 0
   stations:
@@ -33,7 +33,7 @@
       stationProto: StandardFrontierVessel
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'JMW Pickup {1}'
+          mapNameTemplate: 'JMWPickup {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

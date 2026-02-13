@@ -4,8 +4,8 @@ meta:
   engineVersion: 261.2.0
   forkId: ""
   forkVersion: ""
-  time: 02/11/2026 03:18:51
-  entityCount: 260
+  time: 02/13/2026 00:07:47
+  entityCount: 244
 maps: []
 grids:
 - 1
@@ -311,25 +311,6 @@ entities:
     - type: ContainedSolution
       containerName: glass
       container: 26
-  - uid: 35
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - glass
-    - type: Transform
-      parent: 34
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: glass
-        reagents:
-        - data: []
-          ReagentId: Silicon
-          Quantity: 10
-    - type: ContainedSolution
-      containerName: glass
-      container: 34
   - uid: 44
     mapInit: true
     paused: true
@@ -444,76 +425,6 @@ entities:
     - type: ContainedSolution
       containerName: food
       container: 190
-  - uid: 231
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - steel
-    - type: Transform
-      parent: 230
-    - type: Solution
-      solution:
-        maxVol: 10
-        name: steel
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 9
-        - data: []
-          ReagentId: Carbon
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: steel
-      container: 230
-  - uid: 233
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - hvcable
-    - type: Transform
-      parent: 232
-    - type: Solution
-      solution:
-        maxVol: 6
-        name: hvcable
-        reagents:
-        - data: []
-          ReagentId: Iron
-          Quantity: 3
-        - data: []
-          ReagentId: Copper
-          Quantity: 2
-        - data: []
-          ReagentId: Carbon
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: hvcable
-      container: 232
-  - uid: 235
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 234
-    - type: Solution
-      solution:
-        canReact: False
-        maxVol: 10
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Uranium
-          Quantity: 8
-        - data: []
-          ReagentId: Radium
-          Quantity: 2
-    - type: ContainedSolution
-      containerName: food
-      container: 234
 - proto: ActionToggleJetpack
   entities:
   - uid: 183
@@ -1340,26 +1251,6 @@ entities:
       containers:
         solution@hvcable: !type:ContainerSlot
           ent: 74
-  - uid: 232
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - hvcable
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@hvcable: !type:ContainerSlot
-          ent: 233
 - proto: CableMV
   entities:
   - uid: 103
@@ -1428,16 +1319,6 @@ entities:
     components:
     - type: Transform
       parent: 22
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 38
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 32
     - type: EmitSoundOnCollide
       nextSound: -2215.4962569
     - type: Physics
@@ -1598,46 +1479,6 @@ entities:
     components:
     - type: Transform
       parent: 160
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 236
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 237
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 238
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 239
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
     - type: EmitSoundOnCollide
       nextSound: -2215.4962569
     - type: Physics
@@ -2673,36 +2514,11 @@ entities:
         ignore: False
 - proto: GravityGeneratorMini
   entities:
-  - uid: 228
-    mapInit: true
-    paused: true
+  - uid: 70
     components:
     - type: Transform
-      pos: -1.5,-8.5
+      pos: -0.5,-1.5
       parent: 1
-    - type: PowerCharge
-      active: True
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 229
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 230
-          - 232
-          - 234
-          - 236
-          - 237
-          - 238
-          - 239
-          - 240
-          - 241
-          - 242
 - proto: Grille
   entities:
   - uid: 81
@@ -2753,64 +2569,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,2.5
       parent: 1
-- proto: GrilleDiagonal
-  entities:
-  - uid: 70
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,3.5
-      parent: 1
-  - uid: 76
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      pos: -1.5,3.5
-      parent: 1
 - proto: Gyroscope
   entities:
-  - uid: 32
-    mapInit: true
-    paused: true
+  - uid: 55
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,-8.5
+      rot: 3.141592653589793 rad
+      pos: 1.5,-3.5
       parent: 1
-    - type: Thruster
-      nextFire: 670.3728325
-    - type: PointLight
-      enabled: True
-    - type: ContainerContainer
-      containers:
-        machine_board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 33
-        machine_parts: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 34
-          - 36
-          - 37
-          - 38
-- proto: GyroscopeMachineCircuitboard
-  entities:
-  - uid: 33
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 32
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
 - proto: JetpackMiniFilled
   entities:
   - uid: 182
@@ -2918,78 +2684,14 @@ entities:
           length: 0.5
         storage:
           endTime: 1189.8806798
-- proto: MatterBinStockPart
-  entities:
-  - uid: 240
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 241
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 242
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
 - proto: MicroManipulatorStockPart
   entities:
-  - uid: 36
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 32
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-  - uid: 37
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 32
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
   - uid: 131
     mapInit: true
     paused: true
     components:
     - type: Transform
       parent: 129
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-- proto: MiniGravityGeneratorCircuitboard
-  entities:
-  - uid: 229
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
     - type: EmitSoundOnCollide
       nextSound: -2215.4962569
     - type: Physics
@@ -3155,6 +2857,58 @@ entities:
       containers:
         solution@battery: !type:ContainerSlot
           ent: 133
+- proto: PoweredlightExterior
+  entities:
+  - uid: 38
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,3.5
+      parent: 1
+  - uid: 54
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,3.5
+      parent: 1
+- proto: PoweredlightLED
+  entities:
+  - uid: 34
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 1
+  - uid: 35
+    components:
+    - type: Transform
+      pos: -1.5,-3.5
+      parent: 1
+- proto: PoweredlightRed
+  entities:
+  - uid: 32
+    components:
+    - type: Transform
+      pos: -1.5,-8.5
+      parent: 1
+  - uid: 33
+    components:
+    - type: Transform
+      pos: 2.5,-8.5
+      parent: 1
+- proto: PoweredWarmSmallLight
+  entities:
+  - uid: 36
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-1.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-1.5
+      parent: 1
 - proto: RadarConsoleCircuitboard
   entities:
   - uid: 195
@@ -3286,70 +3040,6 @@ entities:
       containers:
         solution@glass: !type:ContainerSlot
           ent: 27
-  - uid: 34
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 32
-    - type: Stack
-      count: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - glass
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@glass: !type:ContainerSlot
-          ent: 35
-- proto: SheetSteel1
-  entities:
-  - uid: 230
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: Stack
-      count: 5
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - steel
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@steel: !type:ContainerSlot
-          ent: 231
-- proto: SheetUranium1
-  entities:
-  - uid: 234
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 228
-    - type: Stack
-      count: 2
-    - type: SolutionContainerManager
-      solutions: null
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -2215.4962569
-    - type: Physics
-      canCollide: False
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 235
 - proto: ShuttleConsoleCircuitboard
   entities:
   - uid: 179
@@ -3405,23 +3095,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,2.5
-      parent: 1
-- proto: ShuttleWindowDiagonal
-  entities:
-  - uid: 54
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      pos: -1.5,3.5
-      parent: 1
-  - uid: 55
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 2.5,3.5
       parent: 1
 - proto: SlowStrongThruster
   entities:
